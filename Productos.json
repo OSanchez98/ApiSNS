@@ -1,0 +1,1 @@
+{"_id":{"$oid":"5be0ed9b123fb60ddfa02e93"},"Code":"001","Titutlo":"Elote chido","Descripcion":"Elotito para quitar el antojo 7u7","Precio":"$20","File":{"name":"Mariana_Flors_1541085408706.png","title":"Mariana_Flors","src":"http://localhost:3500/img/Mariana_Flors_1541085408706.png"},"categoria":{"_id":{"$oid":"5be0edf9123fb60ddfa02eac"},"Descripcion":"Comida"}}
