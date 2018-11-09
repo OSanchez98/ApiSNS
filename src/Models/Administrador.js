@@ -8,4 +8,4 @@ const AdminSchema = new Schema({
     Pass: String
 })
 
-module.exports = mongoose.model('administradores',AdminSchema);
+module.exports = mongoose.model('Administrador',AdminSchema);

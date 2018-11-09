@@ -15,4 +15,4 @@ const UsuarioSchema = new Schema({
         src: String
       }
 })
-module.exports = mongoose.exports('usuario',UsuarioSchema);
+module.exports = mongoose.model('Usuarios',UsuarioSchema);

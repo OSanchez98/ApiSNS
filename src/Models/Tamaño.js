@@ -6,4 +6,4 @@ const TamañoSchema = new Schema({
     Descripcion: String,
     Medidas : String
 })
-module.exports = mongoose.exports('tamaño',TamañoSchema)
+module.exports = mongoose.model('Tamaños',TamañoSchema)
