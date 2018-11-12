@@ -19,8 +19,8 @@ const ProductoSchema = new Schema({
             type: Schema.ObjectId,
             ref:'categorias'
           },
-          Descripcion:String,
+          NombreCategoria:String,
     }
 
 })
-module.exports = mongoose.model('Productos',ProductoSchema);
+module.exports = mongoose.model('productos',ProductoSchema);
