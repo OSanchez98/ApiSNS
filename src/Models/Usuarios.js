@@ -2,11 +2,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const UsuarioSchema = new Schema({
+
     Nombre: String,
     Apellidos: String,
     Direccion: String,
     Sexo: String,
-    Fe_Nacimiento: String,
+    Fe_Nacimiento: Date,
     Correo: String,
     Pass: String,
     file : {
@@ -14,5 +15,5 @@ const UsuarioSchema = new Schema({
         title: String,
         src: String
       }
-})
-module.exports = mongoose.model('Usuarios',UsuarioSchema);
+});
+module.exports = mongoose.model('usuarios',UsuarioSchema);
