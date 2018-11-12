@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const TamañoSchema = new Schema({
-    code: String,
+    Code: String,
     Descripcion: String,
     Medidas : String
 })
-module.exports = mongoose.model('Tamaños',TamañoSchema)
+module.exports = mongoose.model('tamaños',TamañoSchema)
