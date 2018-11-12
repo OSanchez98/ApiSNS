@@ -1,1 +1,3 @@
-{"_id":{"$oid":"5be0edf9123fb60ddfa02eac"},"Code":"CM","Descripcion":"Comida"}
+{"_id":{"$oid":"5be0edf9123fb60ddfa02eac"},
+"Code":"CM",
+"Descripcion":"Comida"}

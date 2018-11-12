@@ -1,1 +1,13 @@
-{"_id":{"$oid":"5be0ea69123fb60ddfa02e06"},"Nombre":"Gloria","Apellidos":"Aguilar","Direccion":"Av industrial reg.96","Sexo":"F","Correo":"GAguilar@hotmail.com","Pass":"123","File":{"name":"Mariana_Flors_1541085408706.png","title":"Mariana_Flors","src":"http://localhost:3500/img/Mariana_Flors_1541085408706.png"}}
+{"_id":{"$oid":"5be0ea69123fb60ddfa02e06"},
+"Nombre":"Gloria",
+"Apellidos":"Aguilar",
+"Direccion":"Av industrial reg.96",
+"Sexo":"F",
+"Correo":"GAguilar@hotmail.com",
+"Pass":"123",
+"File":
+{
+    "name":"Mariana_Flors_1541085408706.png",
+    "title":"Mariana_Flors",
+    "src":"http://localhost:3500/img/Mariana_Flors_1541085408706.png"}
+}
