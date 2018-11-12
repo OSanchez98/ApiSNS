@@ -1,14 +1,13 @@
-const UsuarioRoutes = require('./UsuarioRoutes');
-const TamañoRoute = require('./TamañoRoute');
-const ProductosRoutes = require('./ProductosRoutes');
-const CategoriasRoutes = require('./CategoriaRoutes');
-const AdministradorRoutes = require('./AdministradorRoutes');
+const administradorRoutes = require('./AdministradorRoutes')
+const categoriasRoutes = require('./CategoriaRoutes')
+const tamañoRoutes = require('./TamañoRoute')
+const usuariosRoutes = require('./UsuarioRoutes')
+const productosRoutes = require('./ProductosRoutes')
 
-module.exports = function(app)
-{
-    UsuarioRoutes(app);
-    TamañoRoute(app);
-    ProductosRoutes(app);
-    CategoriasRoutes(app);
-    AdministradorRoutes(app);
+module.exports = function (app) {
+	administradorRoutes(app)
+	categoriasRoutes(app)
+	tamañoRoutes(app)
+	usuariosRoutes(app)
+	productosRoutes(app)
 }
