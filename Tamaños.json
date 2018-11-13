@@ -1,0 +1,12 @@
+{"_id":{"$oid":"5be0e3d7123fb60ddfa02d3f"},
+"Code":"CH",
+"Descripcion":"Chico",
+"Medidas":"5x5 cm"},
+{"_id":{"$oid":"5be0e5bc123fb60ddfa02d74"},
+"Code":"MD",
+"Descripcion":"Mediano",
+"Medidas":"10x10 cm"},
+{"_id":{"$oid":"5be0e616123fb60ddfa02d84"},
+"Code":"GD",
+"Descripcion":"Grande",
+"Medidas":"13x13 cm"}
