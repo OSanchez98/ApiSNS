@@ -82,3 +82,51 @@ exports.productosCreate = (req,res)=>{
       })
 
 }
+
+exports.productosUpdate = (req,res,next)=>{
+    let updateProduct = {}
+
+    updateProduct ={
+        Code: req.body.Code,
+        Titulo: req.body.Titulo,
+        Descripcion: req.body.Descripcion,
+        Precio: req.body.Precio,
+        NombreCategoria:req.body.NombreCategoria
+    }
+
+    Productos.findByIdAndUpdate(req.params.id,updateProduct,{new: true},function(err,productosResponse){
+        if(err)
+        {
+            console.log('aqui'+err);
+            return res.send(JSON.stringify({success: false,msg:"Failed updating"}));        
+        }
+        Categoria.findOne({Descripcion:req.body.NombreCategoria},function(err,categoriaResponse){
+            console.log("categorias: ",categoriaResponse)
+            if (err) return res.send(JSON.stringify({ Code: 400 , Message: `Error contact list: ${err}`}))
+            console.log('id: ',categoriaResponse._id)   
+            Productos.findOneAndUpdate({_id:productosResponse._id},{
+                    $set:
+                    {
+                        Categoria:
+                        {
+                            _id:mongoose.Types.ObjectId(categoriaResponse._id),
+                            NombreCategoria
+                        }
+                    }
+                },(err,doc)=>{
+                console.log('update: ',)
+                    if (err) return res.send( JSON.stringify({ Code: 500, Message: `Not Update Error: ${err}` }))
+                    return res.send( JSON.stringify({
+                        Code: 200,
+                        Message: `New producto CREATED!! - ID ${categoriaResponse._id}`,
+                        Data: {
+                          Id_Inserted:productosResponse._id,
+                        }
+                        
+                      }))
+                }) 
+        })
+        console.log('aqui2'+res);
+    })
+
+}

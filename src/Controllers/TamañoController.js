@@ -39,3 +39,31 @@ exports.tamañoCreate = (req,res)=>{
 
     })
 }
+exports.tamañoUpdate = (function(req,res,next){
+
+    let updateTam = {}
+
+    updateTam ={
+        Code:req.body.Code,
+        Descripcion: req.body.Descripcion,
+        Medidas: req.body.Medidas
+    }
+    Tamaño.findByIdAndUpdate(req.params.id,updateTam,{new:true},function(err,res){
+        if(err)
+        {
+            console.log('aqui'+err);
+            return res.send(JSON.stringify({success: false,msg:"Failed updating"}));        
+        }
+        console.log('aqui2'+res);
+    })
+    res.send(JSON.stringify({code: 200,Message:'Tamaño update'}));
+})
+
+exports.tamañoDelete = function(req,res){
+    Tamaño.findByIdAndDelete(req.params.id,function(err,tamResponse){
+        if (err){ 
+            return res.send(JSON.stringify({ Code: 400 , Message: `Error Delete Tamaño list: ${err}`}))
+          }
+          return res.send(JSON.stringify({code: 200,Message:'Tamaño Delete' ,Data:{tamResponse}}))
+    })
+}

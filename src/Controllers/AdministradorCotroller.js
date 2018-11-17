@@ -41,3 +41,35 @@ exports.adminCreate=(req,res,next)=>{
     })
 
 }
+
+exports.adminUpdate = (req,res,next)=>{
+
+    let updateAdmin = {}
+
+    updateAdmin ={
+        Nombre: req.body.Nombre,
+        Apellidos: req.body.Apellidos,
+        Correo: req.body.Correo,
+        Pass:req.body.Pass
+    }
+
+    administrador.findByIdAndUpdate(req.params.id,updateAdmin,{new:true},function(err,res){
+        if(err)
+        {
+            console.log('aqui'+err);
+            return res.send(JSON.stringify({success: false,msg:"Failed updating"}));        
+        }
+        console.log('aqui2'+res);
+    });
+    res.send(JSON.stringify({code: 200,Message:'Admin update'}));
+}
+
+exports.adminDelete = (req,res)=>{
+    administrador.findByIdAndDelete(req.params.id,function(err,adminResponse){
+        if (err){ 
+            return res.send(JSON.stringify({ Code: 400 , Message: `Error Delete Admin list: ${err}`}))
+          }
+          return res.send(JSON.stringify({code: 200,Message:'Admin Delete' ,Data:{adminResponse}}))
+        
+    })
+}

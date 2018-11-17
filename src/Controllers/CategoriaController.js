@@ -36,3 +36,31 @@ exports.categoriasCreate =(req,res,next)=>{
     })
 
 }
+exports.categoriasUpdate = (function(req,res,next){
+    let updateCategoria={}
+
+    updateCategoria ={
+        Code:req.body.Code,
+        Descripcion: req.body.Descripcion
+    }
+    Categoria.findByIdAndUpdate(req.params.id, updateCategoria,{new:true},function(err,res){
+        if(err)
+        {
+            console.log('aqui'+err);
+            return res.send(JSON.stringify({success: false,msg:"Failed updating"}));        
+        }
+        console.log('aqui2'+res);
+    })
+    res.send(JSON.stringify({code: 200,Message:'Categoria update'}));
+
+})
+
+exports.categoriasDelete = function(req,res){
+    Categoria.findByIdAndDelete(req.params.id,function(err,categoriaRes){
+        if (err){ 
+            return res.send(JSON.stringify({ Code: 400 , Message: `Error Delete categoria list: ${err}`}))
+          }
+          return res.send(JSON.stringify({code: 200,Message:'Categoria Delete' ,Data:{categoriaRes}}))
+        
+    })
+}

@@ -48,3 +48,38 @@ exports.usuariosCreate= (req,res,next)=>{
     })
 
 }
+
+exports.usuariosUpdate = (req,res,next)=>{
+    let updateUsuarios = {}
+
+    updateUsuarios ={
+        Nombre: req.body.Nombre,
+        Apellidos: req.body.Apellidos,
+        Direccion: req.body.Direccion,
+        Sexo:req.body.Sexo,
+        Fe_Nacimiento: req.body.fechaNacimiento,
+        Correo:req.body.Correo,
+        Pass: req.body.Pass
+    }
+
+    Usuarios.findByIdAndUpdate(req.params.id, updateUsuarios,{new:true},function(err,res){
+        if(err)
+        {
+            console.log('aqui'+err);
+            return res.send(JSON.stringify({success: false,msg:"Failed updating"}));        
+        }
+        console.log('aqui2'+res);
+    })
+    res.send(JSON.stringify({code: 200,Message:'User update'}));
+
+}
+exports.usuariosDelete= (req,res,next)=>{
+    Usuarios.findByIdAndDelete(req.params.id,function(err,userResponse){
+        if (err){ 
+            return res.send(JSON.stringify({ Code: 400 , Message: `Error Delete Admin list: ${err}`}))
+          }
+          return res.send(JSON.stringify({code: 200,Message:'User Delete' ,Data:{userResponse}}))
+        
+    })
+}
+
